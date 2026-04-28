@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CV — Yadavee Ramburuth</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --navy: #0f2240;
+    --gold: #b8935a;
+    --gold-light: #d4ae7a;
+    --cream: #faf8f4;
+    --ivory: #f3f0ea;
+    --muted: #7a7670;
+    --border: #e2ddd6;
+    --accent: #2d5a4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #e8e4dc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    color: var(--ink);
+  }
+
+  .page {
+    width: 794px;
+    background: var(--cream);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    background: var(--navy);
+    padding: 48px 52px 40px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    border: 2px solid rgba(184,147,90,0.15);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,147,90,0.1);
+  }
+
+  .header-left { position: relative; z-index: 1; }
+
+  .header-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .header-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .header-name span {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .header-title {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  .header-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 6px rgba(184,147,90,0.15);
+  }
+
+  .header-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ─── CONTACT STRIP ─── */
+  .contact-strip {
+    background: var(--gold);
+    padding: 12px 52px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+
+  .contact-item .ic {
+    font-size: 0.8rem;
+  }
+
+  /* ─── BODY ─── */
+  .body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    background: var(--ivory);
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  /* ─── MAIN ─── */
+  .main {
+    padding: 36px 40px;
+  }
+
+  /* ─── SECTION TITLES ─── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-block { margin-bottom: 28px; }
+
+  /* ─── PROFILE ─── */
+  .profile-text {
+    font-size: 0.8rem;
+    line-height: 1.85;
+    color: #555;
+  }
+
+  /* ─── SKILLS ─── */
+  .skill-group { margin-bottom: 16px; }
+
+  .skill-group-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+
+  .skill-name {
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .skill-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .dot.filled {
+    background: var(--navy);
+  }
+
+  .dot.half {
+    background: linear-gradient(90deg, var(--navy) 50%, var(--border) 50%);
+  }
+
+  /* ─── LANGUAGE ─── */
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .lang-flag {
+    font-size: 1rem;
+    width: 22px;
+    text-align: center;
+  }
+
+  .lang-name {
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .lang-level {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── TAG CHIPS ─── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  /* ─── EDUCATION ITEMS ─── */
+  .edu-item {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+
+  .edu-item::after {
+    content: '';
+    position: absolute;
+    left: 2.5px; top: 14px; bottom: -14px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .edu-item:last-child::after { display: none; }
+
+  .edu-date {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .edu-institution {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .edu-subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .subject-chip {
+    padding: 3px 9px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #444;
+  }
+
+  .subject-chip.highlight {
+    background: linear-gradient(135deg, var(--navy), #2d3f6e);
+    color: var(--gold-light);
+    border-color: transparent;
+    font-weight: 600;
+  }
+
+  /* ─── EXPERIENCE / PROJECT ITEMS ─── */
+  .exp-item {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    background: var(--ivory);
+    border-radius: 8px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    gap: 10px;
+  }
+
+  .exp-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .exp-date-badge {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold);
+    white-space: nowrap;
+    padding: 2px 8px;
+    background: rgba(184,147,90,0.1);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .exp-role {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .exp-bullets {
+    padding-left: 14px;
+  }
+
+  .exp-bullets li {
+    font-size: 0.74rem;
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 2px;
+  }
+
+  /* ─── AWARD ─── */
+  .award-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .award-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--navy), #2d3f6e);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .award-text { flex: 1; }
+
+  .award-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1px;
+  }
+
+  .award-desc {
+    font-size: 0.7rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-eyebrow">Curriculum Vitae</div>
+      <h1 class="header-name">Yadavee <span>Ramburuth</span></h1>
+      <p class="header-title">BSc (Hons) Computer Science · University of Mauritius · Year 1</p>
+    </div>
+    <div class="header-photo">
+      <img src="data:image/jpeg;base64,PHOTO_PLACEHOLDER" alt="Yadavee Ramburuth"/>
+    </div>
+  </div>
+
+  <!-- CONTACT STRIP -->
+  <div class="contact-strip">
+    <div class="contact-item"><span class="ic">✉</span> yadaveeramburuth@gmail.com</div>
+    <div class="contact-item"><span class="ic">🔗</span> linkedin.com/in/yadavee-ramburuth-398a49346</div>
+    <div class="contact-item"><span class="ic">📍</span> Mauritius</div>
+    <div class="contact-item"><span class="ic">🆔</span> Student ID: 2512175</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Technical Skills -->
+      <div class="section-block">
+        <div class="section-title">Technical Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Programming</div>
+          <div class="skill-item">
+            <span class="skill-name">Python</span>
+            <div class="skill-dots">
+              <div class="dot filled"></div><div class="dot filled"></div>
+              <div class="dot filled"></div><div class="dot half"></div><div class="dot"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">SQL</span>
+            <div class="skill-dots">
+              <div class="dot filled"></div><div class="dot filled"></div>
+              <div class="dot filled"></div><div class="dot half"></div><div class="dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Tools & Concepts</div>
+          <div class="skill-item">
+            <span class="skill-name">Database Design</span>
+            <div class="skill-dots">
+              <div class="dot filled"></div><div class="dot filled"></div>
+              <div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MS Office Suite</span>
+            <div class="skill-dots">
+              <div class="dot filled"></div><div class="dot filled"></div>
+              <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Soft Skills</div>
+          <div class="tags">
+            <span class="tag">Leadership</span>
+            <span class="tag">Teamwork</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Research</span>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Time Management</span>
+            <span class="tag">Critical Thinking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="section-block">
+        <div class="section-title">Languages</div>
+        <div class="lang-item">
+          <span class="lang-flag">🇮🇳</span>
+          <span class="lang-name">Hindi</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag">🇲🇺</span>
+          <span class="lang-name">Creole</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag">🇫🇷</span>
+          <span class="lang-name">French</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-name">English</span>
+          <span class="lang-level">Fluent</span>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="section-block">
+        <div class="section-title">Achievements</div>
+        <div class="award-item">
+          <div class="award-icon">🏆</div>
+          <div class="award-text">
+            <div class="award-name">SC — A+ in Economics</div>
+            <div class="award-desc">Cambridge School Certificate · Distinction</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">⭐</div>
+          <div class="award-text">
+            <div class="award-name">SC — A+ in Mathematics</div>
+            <div class="award-desc">Cambridge School Certificate · Distinction</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">🎓</div>
+          <div class="award-text">
+            <div class="award-name">HSC — A in Economics</div>
+            <div class="award-desc">Cambridge Higher School Certificate</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">👑</div>
+          <div class="award-text">
+            <div class="award-name">Team Leader</div>
+            <div class="award-desc">The Fast and Curious — Scavenger Hunt &amp; group projects</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-icon">💼</div>
+          <div class="award-text">
+            <div class="award-name">Operations Manager</div>
+            <div class="award-desc">MauPlanter Business Plan — Six Pack team</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="section-block">
+        <div class="section-title">Interests</div>
+        <div class="tags">
+          <span class="tag">Technology</span>
+          <span class="tag">Computer Science</span>
+          <span class="tag">Programming</span>
+          <span class="tag">Entrepreneurship</span>
+          <span class="tag">Sustainability</span>
+          <span class="tag">Mental Health Awareness</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Profile -->
+      <div class="section-block">
+        <div class="section-title">Profile</div>
+        <p class="profile-text">
+          A dedicated and enthusiastic first-year BSc (Hons) Computer Science student at the University of Mauritius, with a strong academic foundation built through Cambridge School Certificate and Higher School Certificate. Fluent in four languages and skilled in Python and SQL, I bring a blend of technical ability, analytical thinking, and excellent interpersonal skills. I am passionate about technology, eager to continue expanding my expertise in computer science, and committed to completing my degree and making a meaningful contribution to the field.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="section-block">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-date">2025 – Present</div>
+          <div class="edu-degree">BSc (Hons) Computer Science — Year 1</div>
+          <div class="edu-institution">University of Mauritius · Réduit, Mauritius</div>
+          <p style="font-size:0.74rem;color:#555;line-height:1.75;">Currently pursuing a full honours degree in Computer Science. Developing skills in programming, databases, communication and business skills for IT, and various core computer science modules.</p>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-date">Cambridge HSC</div>
+          <div class="edu-degree">Higher School Certificate</div>
+          <div class="edu-institution">Cambridge International · Mauritius</div>
+          <div style="margin-bottom:6px;font-size:0.72rem;color:#666;">Main Subjects:</div>
+          <div class="edu-subjects">
+            <span class="subject-chip">Mathematics</span>
+            <span class="subject-chip">Computer Science</span>
+            <span class="subject-chip highlight">Economics — A</span>
+          </div>
+          <div style="margin-top:8px;margin-bottom:6px;font-size:0.72rem;color:#666;">Subsidiary Subjects:</div>
+          <div class="edu-subjects">
+            <span class="subject-chip">General English Paper</span>
+            <span class="subject-chip">Business Studies</span>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-date">Cambridge SC</div>
+          <div class="edu-degree">School Certificate</div>
+          <div class="edu-institution">Cambridge International · Mauritius</div>
+          <div style="margin-bottom:6px;font-size:0.72rem;color:#666;">Subjects studied:</div>
+          <div class="edu-subjects">
+            <span class="subject-chip">French</span>
+            <span class="subject-chip">English</span>
+            <span class="subject-chip highlight">Mathematics — A+</span>
+            <span class="subject-chip">Additional Mathematics</span>
+            <span class="subject-chip">Business Studies</span>
+            <span class="subject-chip">Accounting</span>
+            <span class="subject-chip highlight">Economics — A+</span>
+            <span class="subject-chip">Computer Science</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Projects & Experience -->
+      <div class="section-block">
+        <div class="section-title">Academic Projects & Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">MauPlanter — Business Plan</div>
+            <div class="exp-date-badge">Oct 2025</div>
+          </div>
+          <div class="exp-role">Operations Manager · Team: Six Pack · University of Mauritius</div>
+          <ul class="exp-bullets">
+            <li>Led procurement, logistics and inventory planning for a sustainable agritech startup concept</li>
+            <li>Contributed to the financial plan (Rs 2.55M start-up capital), SWOT analysis and market research</li>
+            <li>Presented the full business plan in front of the class; pitch included financial projections and management structure</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">The Fast and Curious — Scavenger Hunt</div>
+            <div class="exp-date-badge">Sem 1 · 2025</div>
+          </div>
+          <div class="exp-role">Team Leader · Communication and Business Skills for IT Module</div>
+          <ul class="exp-bullets">
+            <li>Led a team of 4 through a campus-wide photo scavenger hunt with 7 creative challenges</li>
+            <li>Demonstrated leadership in conflict resolution, delegation and team motivation</li>
+            <li>Delivered a presentation of the completed project including team reflection and learning outcomes</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Group Presentation — "How Music Messes With Our Brain?"</div>
+            <div class="exp-date-badge">Sem 1 · 2025</div>
+          </div>
+          <div class="exp-role">Team Member · The Fast and Curious</div>
+          <ul class="exp-bullets">
+            <li>Co-researched and co-presented a topic on the neurological effects of music</li>
+            <li>Developed public speaking, slide design and collaborative research skills</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Synopsis Paper — "Your Mental Health Matters"</div>
+            <div class="exp-date-badge">Sem 2 · 2025–26</div>
+          </div>
+          <div class="exp-role">Individual Assignment · Communication and Business Skills for IT Module</div>
+          <ul class="exp-bullets">
+            <li>Authored a 13-page academic synopsis paper on mental health conditions, risk factors, treatment and self-care</li>
+            <li>Adhered to academic referencing standards with 15 cited sources from WHO, CDC, Harvard Health and more</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-title">Interview / CRM Role Play</div>
+            <div class="exp-date-badge">Sem 2 · 2025–26</div>
+          </div>
+          <div class="exp-role">Interviewer · Communication and Business Skills for IT Module</div>
+          <ul class="exp-bullets">
+            <li>Served as the interviewer in a professional mock interview and CRM simulation</li>
+            <li>Demonstrated active listening, professional etiquette and effective questioning techniques</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Load the photo from the portfolio if available
+// This script embeds the base64 photo automatically
+</script>
+</body>
+</html>
